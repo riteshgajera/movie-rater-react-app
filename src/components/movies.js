@@ -2,6 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { API } from '../services/api-service';
+import {Container, Row, Col, Card, Badge, Button} from 'react-bootstrap';
 
 function Movies(props) {
     const token = localStorage.getItem('token');
@@ -34,7 +35,7 @@ function Movies(props) {
                     </div>
                 )
             })}
-            <button onClick={newMovie}>Add new</button>
+            <Button onClick={newMovie}>Add new</Button>
         </div>
     )
 }

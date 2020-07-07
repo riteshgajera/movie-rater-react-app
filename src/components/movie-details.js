@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { API } from '../services/api-service';
-
+import * as ReactBootstrap from 'react-bootstrap';
 
 function MovieDetails(props){
 

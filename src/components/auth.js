@@ -1,5 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import { API } from '../services/api-service';
+import * as ReactBootstrap from 'react-bootstrap';
 
 function Auth(props) {
 
@@ -41,8 +42,14 @@ function Auth(props) {
     let isDisabled = false;
     if (!isLoginView) {
         isDisabled = username.length === 0 || password.length === 0 || confirmPassword.length === 0;
-        passwordInput = <input type="password" name="password2" value={confirmPassword} placeholder="Confirm Password"
-        onChange={evt => setConfirmPassword(evt.target.value)}/>;
+        passwordInput = <ReactBootstrap.Form.Group>
+                <ReactBootstrap.Form.Control 
+                    type="password" 
+                    name="password2" 
+                    value={confirmPassword} 
+                    placeholder="Confirm Password"
+                    onChange={evt => setConfirmPassword(evt.target.value)} />
+        </ReactBootstrap.Form.Group>
     } else {
         isDisabled = username.length === 0 || password.length === 0;
     }
@@ -51,15 +58,29 @@ function Auth(props) {
         <h1>
             { isLoginView ? 'Login' : 'Sign Up'}
         </h1>
-        <input type="text" name="username" value={username} placeholder="Username"
-            onChange={evt => setUsername(evt.target.value)}/><br/>
-        <input type="password" name={ isLoginView ? 'password' : 'password1'} value={password} placeholder="Password"
-                onChange={evt => setPassword(evt.target.value)}/><br/>
-        {passwordInput}
-        <br/>
-        <button onClick={login} disabled={isDisabled}>
-            { isLoginView ? 'LogIn' : 'Sign Up'}
-        </button>
+        <ReactBootstrap.Form>
+            <ReactBootstrap.Form.Group>
+                <ReactBootstrap.Form.Control 
+                    type="text" 
+                    name="username" 
+                    value={username} 
+                    placeholder="Username"
+                    onChange={evt => setUsername(evt.target.value)} />
+            </ReactBootstrap.Form.Group>
+
+            <ReactBootstrap.Form.Group>
+                <ReactBootstrap.Form.Control 
+                    type="password" 
+                    name={ isLoginView ? 'password' : 'password1'} 
+                    value={password} 
+                    placeholder="Password"
+                    onChange={evt => setPassword(evt.target.value)} />
+            </ReactBootstrap.Form.Group>
+            {passwordInput}
+            <ReactBootstrap.Button onClick={login} disabled={isDisabled}>
+                { isLoginView ? 'LogIn' : 'Sign Up'}
+            </ReactBootstrap.Button>
+        </ReactBootstrap.Form>
         <span onClick={toggleView} className="p-text">
             { isLoginView ? "Don't have an account? Sign up" : 'Do you already have an account? LogIn here!'}
         </span>

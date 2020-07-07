@@ -6,6 +6,7 @@ import MovieForm from './components/movie-form';
 import { useFetch } from './hooks/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faFilm } from '@fortawesome/free-solid-svg-icons'
+import Button from 'react-bootstrap/Button';
 
 function App(props) {
   const token = localStorage.getItem('token');
@@ -57,10 +58,18 @@ function App(props) {
     return (
       <div className="App">
           <h1>
+            {/* <FontAwesomeIcon icon={faFilm}/> */}
+            {/* <button className="btn-logout" onClick={logoutClicked}>Logout</button> */}
+            <Button onClick={logoutClicked}>Logout</Button>
+          </h1>
+          <div className="app-title">
+            <span> Movie Rater </span>
+          </div>
+          {/* <h1>
             <FontAwesomeIcon icon={faFilm}/>
             <span className="app-title">Movie Rater</span>
             <button className="btn-logout" onClick={logoutClicked}>Logout</button>
-          </h1>
+          </h1> */}
           <div className="layout">
             <Movies movies={movies} movieClicked={loadMovie} token={token}
               movieDeleted={movieDeleted} editClicked={editClicked} newMovie={newMovie}/>

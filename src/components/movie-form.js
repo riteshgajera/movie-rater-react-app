@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import {API} from "../services/api-service";
+import * as ReactBootstrap from 'react-bootstrap';
 
 function MovieForm(props) {
     const [ title, setTitle ] = useState(props.movie.title)
@@ -25,17 +26,24 @@ function MovieForm(props) {
 
     return (
         <React.Fragment>
-            <span>Title</span><br/>
-            <input type="text" name="title" value={title}
-                onChange={evt => setTitle(evt.target.value)}/><br/>
-            <span>Description</span><br/>
-            <textarea name="description" value={description}
-                onChange={evt => setDescription(evt.target.value)}/><br/>
+            <ReactBootstrap.Form>
+            <ReactBootstrap.Form.Group>
+            <ReactBootstrap.Form.Label>Title</ReactBootstrap.Form.Label>
+            <ReactBootstrap.Form.Control type="text" placeholder="Enter movie title" name="title" value={title}
+                onChange={evt => setTitle(evt.target.value)} />
+            </ReactBootstrap.Form.Group>
+            
+            <ReactBootstrap.Form.Group>
+            <ReactBootstrap.Form.Label>Description</ReactBootstrap.Form.Label>
+            <ReactBootstrap.Form.Control as="textarea" rows="3" 
+                onChange={evt => setDescription(evt.target.value)} value={description} />
+            </ReactBootstrap.Form.Group>
             { props.movie.id ?
-                <button disabled={isDisabled} onClick={updateClicked}>Update</button> :
-                <button disabled={isDisabled} onClick={saveClicked}>Save</button> }
+                <ReactBootstrap.Button disabled={isDisabled} onClick={updateClicked}>Update</ReactBootstrap.Button> :
+                <ReactBootstrap.Button disabled={isDisabled} onClick={saveClicked}>Save</ReactBootstrap.Button> }
             &nbsp;
-            <button onClick={cancelClicked}>Cancel</button>
+            <ReactBootstrap.Button onClick={cancelClicked}>Cancel</ReactBootstrap.Button>
+            </ReactBootstrap.Form>
         </React.Fragment>
     )
 }
