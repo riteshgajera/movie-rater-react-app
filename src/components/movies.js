@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { API } from '../services/api-service';
-import {Container, Row, Col, Card, Badge, Table, Button} from 'react-bootstrap';
+import {Table, Button} from 'react-bootstrap';
 
 function Movies(props) {
     const token = localStorage.getItem('token');

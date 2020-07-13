@@ -5,8 +5,7 @@ import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
 import { useFetch } from './hooks/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
-import Button from 'react-bootstrap/Button';
+import { faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 
 function App(props) {
   const token = localStorage.getItem('token');

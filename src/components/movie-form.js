@@ -4,19 +4,20 @@ import * as ReactBootstrap from 'react-bootstrap';
 
 function MovieForm(props) {
     const [ title, setTitle ] = useState(props.movie.title)
+    const [ image, setImage ] = useState(props.movie.image)
     const [ description, setDescription ] = useState(props.movie.description)
 
     const cancelClicked = () => {
         props.cancelForm();
     }
     const saveClicked = () => {
-        API.saveMovie(props.token, {title, description})
+        API.saveMovie(props.token, {title, image, description})
             .then(resp => resp.json())
             .then(res => props.newMovie(res))
             .catch( error => console.log(error))
     }
     const updateClicked = () => {
-        API.updateMovie(props.token, props.movie.id, {title, description})
+        API.updateMovie(props.token, props.movie.id, {title, image, description})
             .then( resp => resp.json())
             .then( res => props.editedMovie(res))
             .catch( error => console.log(error))
@@ -33,15 +34,17 @@ function MovieForm(props) {
                 onChange={evt => setTitle(evt.target.value)} />
             </ReactBootstrap.Form.Group>
             
+            <ReactBootstrap.Form.Group> 
+                <ReactBootstrap.Form.File name="image" id="image" label="Movie Picture" 
+                onChange={evt => setImage(evt.target.value)} value={image} />
+            </ReactBootstrap.Form.Group>
+
             <ReactBootstrap.Form.Group>
             <ReactBootstrap.Form.Label>Description</ReactBootstrap.Form.Label>
             <ReactBootstrap.Form.Control as="textarea" rows="3" 
                 onChange={evt => setDescription(evt.target.value)} value={description} />
             </ReactBootstrap.Form.Group>
-
-            <ReactBootstrap.Form.Group>
-                <ReactBootstrap.Form.File id="image" label="Movie Picture" />
-            </ReactBootstrap.Form.Group>
+            
             { props.movie.id ?
                 <ReactBootstrap.Button disabled={isDisabled} onClick={updateClicked}>Update</ReactBootstrap.Button> :
                 <ReactBootstrap.Button disabled={isDisabled} onClick={saveClicked}>Save</ReactBootstrap.Button> }
