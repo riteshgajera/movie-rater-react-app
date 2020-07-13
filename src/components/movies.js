@@ -2,7 +2,7 @@ import React from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash, faEdit } from '@fortawesome/free-solid-svg-icons'
 import { API } from '../services/api-service';
-import {Container, Row, Col, Card, Badge, Button} from 'react-bootstrap';
+import {Container, Row, Col, Card, Badge, Table, Button} from 'react-bootstrap';
 
 function Movies(props) {
     const token = localStorage.getItem('token');
@@ -23,19 +23,33 @@ function Movies(props) {
     
     return (
         <div>
+            <Table responsive>
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Movie Title</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
             { props.movies.map( movie => {
                 console.log(movie, movie.id, movie.title);
+                
                 return (
-                    <div key={movie.id} className="movie-item">
-                        <h3 onClick={movieClicked(movie)}>
-                            {movie.title}
-                        </h3>
-                        <FontAwesomeIcon icon={faEdit} onClick={() => editClicked(movie)}/>
-                        <FontAwesomeIcon icon={faTrash} onClick={() => removeClicked(movie)}/>
-                    </div>
-                )
+                        <tr key={movie.id}>
+                            <td>{movie.id}</td>
+                            <td onClick={movieClicked(movie)}>{movie.title}</td>
+                            <td>
+                                <FontAwesomeIcon icon={faEdit} onClick={() => editClicked(movie)}/>
+                                <FontAwesomeIcon icon={faTrash} onClick={() => removeClicked(movie)}/>
+                            </td>
+                        </tr>
+                        
+                   )
             })}
-            <Button onClick={newMovie}>Add new</Button>
+            </tbody>
+            </Table>
+            <Button variant="contained" onClick={newMovie}>Add new</Button>
         </div>
     )
 }

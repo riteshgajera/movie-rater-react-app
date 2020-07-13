@@ -2,8 +2,7 @@ import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { API } from '../services/api-service';
-import * as ReactBootstrap from 'react-bootstrap';
-import {Card} from 'react-bootstrap';
+import {Card, Badge} from 'react-bootstrap';
 
 function MovieDetails(props){
 
@@ -39,7 +38,7 @@ function MovieDetails(props){
                         <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 2 ? 'static-star': ''}/>
                         <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 3 ? 'static-star': ''}/>
                         <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 4 ? 'static-star': ''}/>
-                        <span>({props.movie.num_of_ratings})</span> 
+                        <Badge variant="light">{props.movie.num_of_ratings}</Badge>
                         <Card.Text>
                             {props.movie.description}
                         </Card.Text>

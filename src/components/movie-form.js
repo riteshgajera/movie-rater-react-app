@@ -38,11 +38,15 @@ function MovieForm(props) {
             <ReactBootstrap.Form.Control as="textarea" rows="3" 
                 onChange={evt => setDescription(evt.target.value)} value={description} />
             </ReactBootstrap.Form.Group>
+
+            <ReactBootstrap.Form.Group>
+                <ReactBootstrap.Form.File id="image" label="Movie Picture" />
+            </ReactBootstrap.Form.Group>
             { props.movie.id ?
                 <ReactBootstrap.Button disabled={isDisabled} onClick={updateClicked}>Update</ReactBootstrap.Button> :
                 <ReactBootstrap.Button disabled={isDisabled} onClick={saveClicked}>Save</ReactBootstrap.Button> }
             &nbsp;
-            <ReactBootstrap.Button onClick={cancelClicked}>Cancel</ReactBootstrap.Button>
+            <ReactBootstrap.Button variant="contained" onClick={cancelClicked}>Cancel</ReactBootstrap.Button>
             </ReactBootstrap.Form>
         </React.Fragment>
     )

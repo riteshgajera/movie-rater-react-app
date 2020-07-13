@@ -5,7 +5,7 @@ import MovieDetails from './components/movie-details';
 import MovieForm from './components/movie-form';
 import { useFetch } from './hooks/hooks';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faFilm } from '@fortawesome/free-solid-svg-icons'
+import { faFilm, faSignOutAlt } from '@fortawesome/free-solid-svg-icons'
 import Button from 'react-bootstrap/Button';
 
 function App(props) {
@@ -57,10 +57,11 @@ function App(props) {
   if (movies) {
     return (
       <div className="App">
-          <h1>
+          <h1 className="signout-icon">
             {/* <FontAwesomeIcon icon={faFilm}/> */}
             {/* <button className="btn-logout" onClick={logoutClicked}>Logout</button> */}
-            <Button onClick={logoutClicked}>Logout</Button>
+            {/* <Button onClick={logoutClicked}>Logout</Button> */}
+            <FontAwesomeIcon icon={faSignOutAlt} onClick={logoutClicked} />
           </h1>
           <div className="app-title">
             <span> Movie Rater </span>
