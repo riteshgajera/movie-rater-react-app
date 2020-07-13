@@ -34,11 +34,13 @@ span {
     color: black;
     font-size: 36px;
     line-height: 40px;
+    padding: 25px;
 }
 
 .login-container {
   width: 50%;
   margin: 0 25%;
+  padding: 50px;
 }
 
 .p-text {
@@ -55,27 +57,6 @@ span {
   color: #fff;
   background-color: #007bff;
   border-color: #007bff;
-}
-
-/* button {
-  color: #444444;
-  background-color: #f3f3f3;
-  padding: 5px 10px;
-  border-radius: 2px;
-  font-weight: bold;
-  font-size: 1.2em;
-  outline: none;
-} */
-
-.btn-logout{
-  color: #444444;
-  background-color: #f3f3f3;
-  padding: 2px 5px;
-  border-radius: 1px;
-  font-weight: bold;
-  font-size: 0.5em;
-  outline: none;
-  float: right;
 }
 
 .static-star{
@@ -97,7 +78,7 @@ span {
 
 
 .rate-container .fa-star{
-  font-size: 1.8rem;
+  font-size: 1rem;
   cursor: pointer;
 }
 
@@ -115,20 +96,13 @@ button:disabled {
   border: 1px solid #999999;
   background-color: #cccccc;
   color: #666666;
-  /* color: #f3f3f3;
-  background-color: #444444; */
   cursor: not-allowed;
-}
-input, textarea {
-  width: 50%;
-  padding: 10px;
-  margin: 15px 0;
 }
 
 h2 {
   margin: 0;
   font-size: 2em;
-  padding: 20px 0;
+  padding: 5px 0;
 }
 
 .fa-edit {

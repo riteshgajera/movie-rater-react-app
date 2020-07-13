@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar } from '@fortawesome/free-solid-svg-icons'
 import { API } from '../services/api-service';
 import * as ReactBootstrap from 'react-bootstrap';
+import {Card} from 'react-bootstrap';
 
 function MovieDetails(props){
 
@@ -27,16 +28,23 @@ function MovieDetails(props){
     return (
         <React.Fragment>
             { props.movie ? (
+                
                 <div>
-                    <h3>{props.movie.title}</h3>
-                    <img src={props.movie.image.url} alt={props.movie.title} width="200px" height="150px" />
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 0 ? 'static-star': ''}/>
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 1 ? 'static-star': ''}/>
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 2 ? 'static-star': ''}/>
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 3 ? 'static-star': ''}/>
-                    <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 4 ? 'static-star': ''}/>
-                    <span>({props.movie.num_of_ratings})</span> 
-                    <p>{props.movie.description}</p>
+                    <Card style={{ width: '18rem' }}>
+                        <Card.Img variant="top" src={props.movie.image} alt={props.movie.title} width="285px" height="160px" />
+                        <Card.Body>
+                        <Card.Title>{props.movie.title}</Card.Title>
+                        <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 0 ? 'static-star': ''}/>
+                        <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 1 ? 'static-star': ''}/>
+                        <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 2 ? 'static-star': ''}/>
+                        <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 3 ? 'static-star': ''}/>
+                        <FontAwesomeIcon icon={faStar} className={props.movie.avg_rating > 4 ? 'static-star': ''}/>
+                        <span>({props.movie.num_of_ratings})</span> 
+                        <Card.Text>
+                            {props.movie.description}
+                        </Card.Text>
+                        </Card.Body>
+                    </Card>
 
                     <div className="rate-container">
                         <h2>Rate it !!!</h2>

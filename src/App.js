@@ -65,11 +65,6 @@ function App(props) {
           <div className="app-title">
             <span> Movie Rater </span>
           </div>
-          {/* <h1>
-            <FontAwesomeIcon icon={faFilm}/>
-            <span className="app-title">Movie Rater</span>
-            <button className="btn-logout" onClick={logoutClicked}>Logout</button>
-          </h1> */}
           <div className="layout">
             <Movies movies={movies} movieClicked={loadMovie} token={token}
               movieDeleted={movieDeleted} editClicked={editClicked} newMovie={newMovie}/>
